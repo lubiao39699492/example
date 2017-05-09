@@ -1,4 +1,4 @@
-    (function(){
+(function(){
 
     	var float = function(wrap, img){
         	
@@ -29,12 +29,10 @@
 
         var resize = function(img, options){
             var wrap = img.parent('div.img-wrap');
-            if(wrap.length > 0){
-                img.unwrap();
+            if(wrap.length == 0){
+            	img.wrap('<div class="img-wrap" style="width:100%;height:auto;"></div>');
+            	var wrap = img.parent('div.img-wrap');
             }
-            
-        	img.wrap('<div class="img-wrap"></div>');
-        	var wrap = img.parent('div.img-wrap');
             
         	if(!options.width){
         		options.width = img.data('width');
@@ -43,13 +41,11 @@
         		options.height = img.data('height');
         	}
     		if(options.width && options.height){
-    			var width = img.width();
+    			var width = wrap.width();
     			var height = (options.height/options.width)*width;
     			wrap.css({
-					'width':width,
 					'height':height
     			});
-
     			float(wrap, img);
     		}
     	};
