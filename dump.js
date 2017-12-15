@@ -16,7 +16,11 @@ function dump(obj){
       }
     if(isOut){
       if(typeof obj == 'object'){
-        obj = JSON.stringify(obj);
+        if(obj.outerHTML){
+          obj = obj.outerHTML;
+        }else{
+          obj = JSON.stringify(obj);
+        }
       }
       console.log(obj);
     }else{
@@ -24,7 +28,11 @@ function dump(obj){
     }
   }else{
     if(typeof obj == 'object'){
-      obj = JSON.stringify(obj);
+      if(obj.outerHTML){
+        obj = obj.outerHTML;
+      }else{
+        obj = JSON.stringify(obj);
+      }
     }
     alert(JSON.stringify(obj));
   }
