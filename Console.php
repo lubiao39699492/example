@@ -1,6 +1,7 @@
 <?php
 class Console
 {
+    private $static $commands = [];
     /**
      * ssert方法接受两个参数，第一个参数是表达式，第二个参数是字符串。只有当第一个参数为false，才会输出第二个参数，否则不会有任何结果。
      */
@@ -139,5 +140,18 @@ class Console
      * 输出警告信息
      */
     public static function warn()
-    {}
+    {
+        self::build('warn')
+    }
+    
+    public static function build($command)
+    {
+        $command = "console.{$command}()";
+        self::$command[] = 
+    }
+    
+    public static function output()
+    {
+        
+    }
 }
