@@ -1,5 +1,4 @@
 <?php
-namespace Luwake\Console;
 
 class Console
 {
